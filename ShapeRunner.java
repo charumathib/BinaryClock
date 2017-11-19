@@ -3,23 +3,34 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
-public class CirclesRunner extends JPanel{
-    Circle[] hours = new Circle[6];
-    Circle[] mins = new Circle[6];
-    Circle[] secs = new Circle[6];
+public class ShapeRunner extends JPanel{
+    Shape[] hours = new Shape[6];
+    Shape[] mins = new Shape[6];
+    Shape[] secs = new Shape[6];
+    final int rowSpacing = 500/4;
+    private boolean circle = true ;
     GregorianCalendar cal;
-    Font font = new Font("Haettenschweiler", Font.BOLD, 24);
+    Font font ;
     int h, m, s;
-    public CirclesRunner(){
+    public ShapeRunner(){        
+    }
+
+    public void initialiseShapes() { 
+        Shape s = (circle ? new Circle(): new Square());
+
         for(int i = 0; i < 6; i++){
-            hours[i] = new Circle();
-            mins[i] = new Circle();
-            secs[i] = new Circle();            
+            hours[i] = s.getShape();
+            mins[i] = s.getShape();
+            secs[i] = s.getShape();
         }
+    }
+    
+    public void changeShape() {
+        this.circle = !this.circle;
     }
 
     public void paint(Graphics g){
-
+        initialiseShapes();
         //if the circle contains a 1 at a certain index, make the circle there cyan. Otherwise, leave it black
         cal = new GregorianCalendar();
         String binaryHours = convertToBinary(cal.get(Calendar.HOUR_OF_DAY));
@@ -32,7 +43,7 @@ public class CirclesRunner extends JPanel{
         repaint();
     }
 
-    public void printTime(Graphics g, Circle[] circles, String time, int row){
+    public void printTime(Graphics g, Shape[] circles, String time, int row){
         int xPos = 500/7;//screenlength + 250
         Color c;
         for(int i = 0; i < time.length(); i++){
@@ -40,7 +51,7 @@ public class CirclesRunner extends JPanel{
             if(time.substring(i, i+1).equals("1")){
                 c = Color.cyan;
             }
-            circles[i].paintShape(g, xPos, 500/4 * row, c);
+            circles[i].paintShape(g, xPos, rowSpacing * row, c);
             xPos += 50;
         }
     }
@@ -61,9 +72,17 @@ public class CirclesRunner extends JPanel{
     }
 
     public void writeText(Graphics g){
+        font = new Font("Haettenschweiler", Font.BOLD, 24);
         g.setFont(font);
-        g.drawString("Hours" , 400, 145);
-        g.drawString("Minutes", 400, 270);
-        g.drawString("Seconds", 400, 395);
+        g.drawString("Hours" , 400, rowSpacing + 20);
+        g.drawString("Minutes", 400, rowSpacing * 2 + 20);
+        g.drawString("Seconds", 400, rowSpacing * 3 + 20);
+        g.drawString(Integer.toString(cal.get(Calendar.HOUR_OF_DAY)), 20, rowSpacing + 20);
+        g.drawString(Integer.toString(cal.get(Calendar.MINUTE)), 20, rowSpacing * 2 + 20);
+        g.drawString(Integer.toString(cal.get(Calendar.SECOND)), 20, rowSpacing * 3 + 20);
+        font = new Font("Haettenschweiler", Font.BOLD, 50);
+        g.setFont(font);
+        g.drawString("BINARY CLOCK", 123, 75);
+
     }
 }
