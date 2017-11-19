@@ -1,7 +1,9 @@
-//find a way to convert given times to binary
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
+/**
+ * Main class
+ */
 public class Clock {
     public Clock(){
         JFrame theGUI = new JFrame();
