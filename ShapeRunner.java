@@ -32,7 +32,7 @@ public class ShapeRunner extends JPanel{
         printTime(g, mins, binaryMinutes, 2);
         printTime(g, secs, binarySeconds, 3);
         //setBackground(Color.magenta);
-        if(elapsed(6)){
+        if(elapsed(5)){
             setBackground(new Color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255)));
         }
         repaint();

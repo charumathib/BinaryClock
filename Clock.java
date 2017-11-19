@@ -5,7 +5,7 @@ import java.awt.*;
 public class Clock {
     public Clock(){
         JFrame theGUI = new JFrame();
-        theGUI.setTitle("First GUI Program");
+        theGUI.setTitle("Binary Clock - ATTENTION SEIZURE WARNING");
         theGUI.setSize(500, 500);
         theGUI.setResizable(false);
         theGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

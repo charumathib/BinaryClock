@@ -10,8 +10,11 @@ public class Shape extends JPanel {
         super.paintComponent(g);
         //int startTime
         g.setColor(c);
-        elapsed(3);
+        elapsed(2);
         if(isCircle){
+            if(c == Color.cyan){
+                g.setColor(Color.yellow);
+            }
             g.fillOval(xPos, yPos, 20, 20);
            
         }else{
