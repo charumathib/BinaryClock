@@ -13,6 +13,7 @@ public class Clock {
 
         theGUI.setTitle("Binary Clock");
         theGUI.setSize(500, 500);
+
         theGUI.setResizable(false);
         theGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container pane = theGUI.getContentPane();
@@ -38,7 +39,7 @@ public class Clock {
                 public void actionPerformed(ActionEvent event) { 
                     AbstractButton abstractButton = (AbstractButton) event.getSource();
                     ButtonModel buttonModel = abstractButton.getModel();
-                    boolean selected = buttonModel.isSelected();
+                    boolean selected = buttonModel.isSelected(); 
                     cr.changeShape() ; 
                 }
 
