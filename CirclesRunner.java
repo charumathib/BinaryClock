@@ -29,11 +29,12 @@ public class CirclesRunner extends JPanel{
         printTime(g, hours, binaryHours, 1);
         printTime(g, mins, binaryMinutes, 2);
         printTime(g, secs, binarySeconds, 3);
+        setBackground(Color.magenta);
         repaint();
     }
 
     public void printTime(Graphics g, Circle[] circles, String time, int row){
-        int xPos = 500/7;//screenlength + 250
+        int xPos = 500/7 + 20;//screenlength + 250
         Color c;
         for(int i = 0; i < time.length(); i++){
             c = Color.black;
@@ -61,7 +62,15 @@ public class CirclesRunner extends JPanel{
     }
 
     public void writeText(Graphics g){
+
+        font = new Font("Haettenschweiler", Font.BOLD, 50);
         g.setFont(font);
+        g.drawString("BINARY CLOCK", 125, 75);
+        font = new Font("Haettenschweiler", Font.BOLD, 24);
+        g.setFont(font);
+        g.drawString(Integer.toString(cal.get(Calendar.HOUR_OF_DAY)), 30, 145);
+        g.drawString(Integer.toString(cal.get(Calendar.MINUTE)), 30, 270);
+        g.drawString(Integer.toString(cal.get(Calendar.SECOND)), 30, 395);
         g.drawString("Hours" , 400, 145);
         g.drawString("Minutes", 400, 270);
         g.drawString("Seconds", 400, 395);

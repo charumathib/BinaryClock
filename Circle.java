@@ -6,6 +6,7 @@ public class Circle extends JPanel {
     public void paintShape(Graphics g, int xPos, int yPos, Color c){//creates one circle
         super.paintComponent(g);
         g.setColor(c);
+        //g.fillRect(xPos, yPos, 20, 20);
         g.fillOval(xPos, yPos, 20, 20);
         repaint();
     }

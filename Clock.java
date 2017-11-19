@@ -7,6 +7,7 @@ public class Clock {
         JFrame theGUI = new JFrame();
         theGUI.setTitle("First GUI Program");
         theGUI.setSize(500, 500);
+        theGUI.setResizable(false);
         theGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container pane = theGUI.getContentPane();
         CirclesRunner cr = new CirclesRunner();
