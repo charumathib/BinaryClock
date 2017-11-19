@@ -2,7 +2,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.Timer;
-public class Circle extends JPanel {
+public class Shape extends JPanel {
     long startTime = System.nanoTime();
     long endTime;
     boolean isCircle = true;

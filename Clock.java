@@ -10,8 +10,8 @@ public class Clock {
         theGUI.setResizable(false);
         theGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container pane = theGUI.getContentPane();
-        CirclesRunner cr = new CirclesRunner();
-        pane.add(cr);
+        ShapeRunner sr = new ShapeRunner();
+        pane.add(sr);
         theGUI.setVisible(true);
 
     }   

@@ -3,20 +3,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
-public class CirclesRunner extends JPanel{
-    Circle[] hours = new Circle[6];
-    Circle[] mins = new Circle[6];
-    Circle[] secs = new Circle[6];
+public class ShapeRunner extends JPanel{
+    Shape[] hours = new Shape[6];
+    Shape[] mins = new Shape[6];
+    Shape[] secs = new Shape[6];
     GregorianCalendar cal;
     Font font = new Font("Haettenschweiler", Font.BOLD, 24);
     int h, m, s;
     long startTime = System.nanoTime();
     long endTime;
-    public CirclesRunner(){
+    public ShapeRunner(){
         for(int i = 0; i < 6; i++){
-            hours[i] = new Circle();
-            mins[i] = new Circle();
-            secs[i] = new Circle();            
+            hours[i] = new Shape();
+            mins[i] = new Shape();
+            secs[i] = new Shape();            
         }
     }
 
@@ -38,7 +38,7 @@ public class CirclesRunner extends JPanel{
         repaint();
     }
 
-    public void printTime(Graphics g, Circle[] circles, String time, int row){
+    public void printTime(Graphics g, Shape[] circles, String time, int row){
         int xPos = 500/7 + 20;//screenlength + 250
         Color c;
         for(int i = 0; i < time.length(); i++){
