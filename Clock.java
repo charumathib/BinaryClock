@@ -9,16 +9,9 @@ public class Clock {
         theGUI.setSize(500, 500);
         theGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container pane = theGUI.getContentPane();
-        CirclesRunner r = new CirclesRunner();
-        pane.add(r);
+        CirclesRunner cr = new CirclesRunner();
+        pane.add(cr);
         theGUI.setVisible(true);
 
-    }
-
-    public static void main (String [] args){
-        System.out.println("\u000c");
-
-    }
-
-   
+    }   
 }
