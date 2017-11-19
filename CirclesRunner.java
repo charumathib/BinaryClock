@@ -10,6 +10,8 @@ public class CirclesRunner extends JPanel{
     GregorianCalendar cal;
     Font font = new Font("Haettenschweiler", Font.BOLD, 24);
     int h, m, s;
+    long startTime = System.nanoTime();
+    long endTime;
     public CirclesRunner(){
         for(int i = 0; i < 6; i++){
             hours[i] = new Circle();
@@ -29,7 +31,10 @@ public class CirclesRunner extends JPanel{
         printTime(g, hours, binaryHours, 1);
         printTime(g, mins, binaryMinutes, 2);
         printTime(g, secs, binarySeconds, 3);
-        setBackground(Color.magenta);
+        //setBackground(Color.magenta);
+        if(elapsed(6)){
+            setBackground(new Color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255)));
+        }
         repaint();
     }
 
@@ -74,5 +79,15 @@ public class CirclesRunner extends JPanel{
         g.drawString("Hours" , 400, 145);
         g.drawString("Minutes", 400, 270);
         g.drawString("Seconds", 400, 395);
+    }
+
+    public boolean elapsed(int time){
+        endTime = System.nanoTime();
+        long duration = (endTime - startTime)/1000000000;
+        if(duration >= time){
+            startTime = System.nanoTime();
+            return true;
+        }
+        return false;
     }
 }
