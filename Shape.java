@@ -23,16 +23,16 @@ public class Shape extends JPanel {
     public void paintShape(Graphics g, int xPos, int yPos, Color c){
         super.paintComponent(g);
         g.setColor(c);
-        elapsed(2);
+        elapsed(5);
         if(isCircle){
             if(c == Color.cyan){//changes the color of the circles
                 g.setColor(Color.yellow);
             }
             g.fillOval(xPos, yPos, 20, 20);
-           
         }else{
             g.fillRect(xPos, yPos, 20, 20);
-        }  
+
+        } 
         repaint();
     }
 

@@ -44,7 +44,7 @@ public class ShapeRunner extends JPanel{
         printTime(g, hours, binaryHours, 1);//prints hours
         printTime(g, mins, binaryMinutes, 2);//prints minutes
         printTime(g, secs, binarySeconds, 3);//prints seconds
-        if(elapsed(5)){//background changes to a random color every 5 seconds
+        if(elapsed (5)){//background changes to a random color every 5 seconds
             setBackground(new Color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255)));
         }
         repaint();
@@ -100,6 +100,19 @@ public class ShapeRunner extends JPanel{
      * @param g Graphics object
      */
     public void writeText(Graphics g){
+        font = new Font("Haettenschweiler", Font.BOLD, 50);
+        g.setFont(font);
+        g.setColor(Color.black);
+        g.drawString("BINARY CLOCK", 120, 75);
+        font = new Font("Haettenschweiler", Font.BOLD, 24);
+        g.setFont(font);
+        g.drawString(Integer.toString(cal.get(Calendar.HOUR_OF_DAY)), 27, 145);
+        g.drawString(Integer.toString(cal.get(Calendar.MINUTE)), 27, 270);
+        g.drawString(Integer.toString(cal.get(Calendar.SECOND)), 27, 395);
+        g.drawString("Hours" , 397, 145);
+        g.drawString("Minutes", 397, 270);
+        g.drawString("Seconds", 397, 395);
+        g.setColor(Color.red);
         font = new Font("Haettenschweiler", Font.BOLD, 50);
         g.setFont(font);
         g.drawString("BINARY CLOCK", 125, 75);
